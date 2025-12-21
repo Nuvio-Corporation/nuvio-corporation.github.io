@@ -21,11 +21,13 @@ body {
     background-color: #121212;
     border: none;
     border-radius: 10px;
+    pading: 5px;
 }
 .card {
     background-color: #121212;
     border: none;
     border-radius: 10px;
+    padding: 5px;
 
     font-family: 'Silkscreen', monospace;
 }
@@ -115,6 +117,7 @@ body {
         display: block;
     }
 }
+
 
 
 
