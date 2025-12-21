@@ -18,9 +18,11 @@
 }
 
 .navbar-logo img {
-    height: auto;
-    max-height: 80px;
+    max-height: 80px;   /* limits the height */
+    width: auto;        /* preserves aspect ratio */
+    display: block;
 }
+
 
 .navbar-menu {
     list-style: none;
@@ -76,3 +78,4 @@
         display: block;
     }
 }
+
