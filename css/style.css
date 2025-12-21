@@ -18,8 +18,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 999;
-    font-family: system-ui;
-}
+    font-family: "Times New Roman", Times, serif;}
 
 .navbar-container {
     display: flex;
@@ -91,6 +90,7 @@ body {
         display: block;
     }
 }
+
 
 
 
