@@ -1,3 +1,15 @@
+body {
+    background-color: #1A1A1A;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+.btn {
+    background-color: #572a87;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+}
 /* ===== Desktop Navbar ===== */
 .navbar-desktop {
     width: 100%;
@@ -78,4 +90,5 @@
         display: block;
     }
 }
+
 
