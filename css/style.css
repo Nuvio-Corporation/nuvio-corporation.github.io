@@ -2,8 +2,9 @@ body {
     background-color: #1A1A1A;
     font-family: Arial, sans-serif;
     color: white;
-    top: 0;
-    z-index: 999;
+    margin: 0 auto;
+    padding: 0 16px;
+
 }
 .btn {
     background-color: #572a87;
@@ -92,6 +93,7 @@ body {
         display: block;
     }
 }
+
 
 
 
