@@ -17,6 +17,11 @@ body {
     border-radius: 20px;
     padding: 10px;
 }
+.card-project {
+    background-color: #121212;
+    border: none;
+    border-radius: 10px;
+}
 /* ===== Desktop Navbar ===== */
 .navbar-desktop {
     width: 100%;
@@ -103,6 +108,7 @@ body {
         display: block;
     }
 }
+
 
 
 
