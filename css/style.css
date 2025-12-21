@@ -16,6 +16,7 @@ body {
     border: none;
     border-radius: 20px;
     padding: 10px;
+    text-decoration: none;
 }
 .card-project {
     background-color: #121212;
@@ -123,6 +124,7 @@ body {
         display: block;
     }
 }
+
 
 
 
