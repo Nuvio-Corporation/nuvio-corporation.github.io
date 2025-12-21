@@ -1,7 +1,7 @@
-// Dynamically inserts the navbar into pages
 document.addEventListener("DOMContentLoaded", function () {
     const navbarHTML = `
-    <nav class="navbar">
+    <!-- Top Navbar for desktop -->
+    <nav class="navbar-desktop">
         <div class="navbar-container">
             <a href="index.html" class="navbar-logo">
                 <img src="images/nuvio-logo.png" alt="Nuvio Logo" width="901" height="277">
@@ -15,8 +15,16 @@ document.addEventListener("DOMContentLoaded", function () {
             </ul>
         </div>
     </nav>
+
+    <!-- Bottom Navbar for mobile -->
+    <nav class="navbar-mobile">
+        <ul class="navbar-mobile-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+        </ul>
+    </nav>
     `;
 
-    // Insert navbar at the top of body
     document.body.insertAdjacentHTML("afterbegin", navbarHTML);
 });
