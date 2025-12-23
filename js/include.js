@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <nav class="navbar-desktop">
         <div class="navbar-container">
             <a href="/" class="navbar-logo">
-                <img src="/images/nuvio-logo.png" alt="Nuvio Logo" width="901" height="277">
+                <img src="images/nuvio-logo.png" alt="Nuvio Logo" width="901" height="277">
             </a>
             <ul class="navbar-menu">
                 <li><a href="/">Home</a></li>
