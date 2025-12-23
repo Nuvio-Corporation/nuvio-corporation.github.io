@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Welcome to the Nuvio Blog",
+    "description": "An introduction to what this blog is and what to expect.",
+    "date": "...",
+    "url": "/blog/posts/welcome.html"
+  },
+  {
+    "title": "Why Nuvio Exists",
+    "description": "A short explanation of the philosophy behind Nuvio.",
+    "date": "...",
+    "url": "/blog/posts/why-nuvio.html"
+  },
+  {
+    "title": "Full site Refreshed",
+    "description": "A short schangelog of this site.",
+    "date": "23/12/2025",
+    "url": "/blog/posts/full-site-refreshed.html"
+  }
+]

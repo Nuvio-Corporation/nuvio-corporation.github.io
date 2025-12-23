@@ -1,20 +1,52 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Nuvio</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="icon" type="image/png" href="/images/favicon.png">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nuvio Blog</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+</head>
 
-  </head>
-  <body>
+<body>
+
+  <!-- Header -->
+  <section class="card" style="margin: 40px auto; max-width: 900px;">
     <h1>Nuvio Blog</h1>
-    <section class="card-project">
-        <h2><a href="/blog/we-made-this-page.html">We made this page!</a></h2>
-        <p>THis is the first time Nuvio hosts on GitHub pages!</p>
+    <p style="color:#b5b7d2;">
+      Updates, experiments, and internal posts from Nuvio.
+    </p>
+  </section>
 
-    </section>
+  <!-- Blog posts -->
+  <section style="margin: 40px auto; max-width: 900px;">
+    <div id="posts" style="display:grid; gap:20px;"></div>
+  </section>
+
+  <script>
+    fetch('/blog/posts.json')
+      .then(res => res.json())
+      .then(posts => {
+        const container = document.getElementById('posts');
+
+        posts
+          .sort((a, b) => new Date(b.date) - new Date(a.date))
+          .forEach(post => {
+            const el = document.createElement('section');
+            el.className = 'card-project';
+
+            el.innerHTML = `
+              <a href="${post.url}">
+                <h2>${post.title}</h2>
+              </a>
+              <p>${post.description}</p>
+              <small style="color:#888;">${post.date}</small>
+            `;
+
+            container.appendChild(el);
+          });
+      });
+  </script>
+
+  <script src="/js/include.js"></script>
 </body>
 </html>
-
-
-<script src="/js/include.js"></script>
