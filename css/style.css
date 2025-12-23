@@ -1,75 +1,107 @@
+/* ===== Root Variables ===== */
 :root {
     --content-left: 32px; /* MUST match logo offset */
+
+    /* Galaxy palette */
+    --bg-main: #0b0f1a;
+    --bg-card: #12182b;
+    --bg-card-alt: #0e1324;
+    --accent-purple: #7a3cff;
+    --accent-blue: #4da3ff;
+    --text-main: #eaeaf0;
+    --text-muted: #b5b7d2;
+    --danger: #ff3b3b;
 }
 
+/* ===== Base ===== */
 body {
-    background-color: #1A1A1A;
+    background-color: var(--bg-main);
     font-family: Arial, sans-serif;
-    color: white;
+    color: var(--text-main);
     margin: 0 auto;
     padding: 0 16px;
-
 }
+
+/* ===== Buttons ===== */
 .btn {
-    background-color: #572a87;
+    background: linear-gradient(135deg, var(--accent-purple), #3b1d6a);
     color: white;
     border: none;
     border-radius: 20px;
-    padding: 10px;
+    padding: 10px 16px;
     text-decoration: none;
+    box-shadow: 0 0 12px rgba(122, 60, 255, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 18px rgba(122, 60, 255, 0.6);
+}
+
+/* ===== Cards ===== */
+.card,
 .card-project {
-    background-color: #121212;
-    border: none;
-    border-radius: 10px;
-    padding: 5px;
+    background-color: var(--bg-card);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
+
+.card {
+    font-family: 'Silkscreen', monospace;
+}
+
 .card-project a {
     text-decoration: none;
-    color: #ffffff;
+    color: var(--text-main);
     font-weight: 500;
     transition: color 0.3s;
 }
-.card-project a:hover {
-    color: #007bff;
-}
-.project-container {
-    padding: 5px;
-}
-.project-container section {
-    background-color: #121212;
-    padding: 5px;
-}
-.card {
-    background-color: #121212;
-    border: none;
-    border-radius: 10px;
-    padding: 5px;
 
-    font-family: 'Silkscreen', monospace;
+.card-project a:hover {
+    color: var(--accent-blue);
 }
+
+/* ===== Project Container ===== */
+.project-container {
+    padding: 8px;
+}
+
+.project-container section {
+    background-color: var(--bg-card-alt);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* ===== Simple Buttons ===== */
 .sbasic {
     background-color: white;
     border: none;
     color: black;
-    padding: 10px;
+    padding: 10px 14px;
+    border-radius: 6px;
 }
+
 .sbasic-danger {
-    background-color: rgb(255, 0, 0);
+    background-color: var(--danger);
     color: white;
     border: none;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 6px;
+    padding: 10px 14px;
 }
+
 /* ===== Desktop Navbar ===== */
 .navbar-desktop {
     width: 100%;
     background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     position: sticky;
     top: 0;
     z-index: 999;
-    font-family: "Times New Roman", Times, serif;}
+    font-family: "Times New Roman", Times, serif;
+}
 
 .navbar-container {
     display: flex;
@@ -78,18 +110,14 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-    display: flex;
-    align-items: center;
-    
 }
 
 .navbar-logo img {
-    max-height: 80px;   /* limits the height */
-    width: auto;        /* preserves aspect ratio */
+    max-height: 80px;
+    width: auto;
     display: block;
     margin-left: var(--content-left);
 }
-
 
 .navbar-menu {
     list-style: none;
@@ -103,23 +131,23 @@ body {
 
 .navbar-menu li a {
     text-decoration: none;
-    color: #333;
+    color: #222;
     font-weight: 500;
     transition: color 0.3s;
 }
 
 .navbar-menu li a:hover {
-    color: #007bff;
+    color: var(--accent-purple);
 }
 
 /* ===== Mobile Bottom Navbar ===== */
 .navbar-mobile {
-    display: none; /* hidden by default */
+    display: none;
     position: fixed;
     bottom: 0;
     width: 100%;
     background-color: #ffffff;
-    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.15);
     z-index: 999;
 }
 
@@ -133,7 +161,7 @@ body {
 
 .navbar-mobile-menu li a {
     text-decoration: none;
-    color: #333;
+    color: #222;
     font-weight: 500;
     font-size: 14px;
 }
@@ -147,15 +175,3 @@ body {
         display: block;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
