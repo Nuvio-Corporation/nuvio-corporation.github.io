@@ -7,11 +7,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 <img src="/images/nuvio-logo.png" alt="Nuvio Logo" width="901" height="277">
             </a>
             <ul class="navbar-menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about.html">About</a></li>
-                <li><a href="/projects.html">Projects</a></li>
-                <li><a href="/news.html">News</a></li>
-                <li><a href="/contact.html">Contact</a></li>
+                <li><a href="/"><i class="fa fa-house"></i>Home</a></li>
+                <li><a href="/about.html"><i class="fa fa-info"></i>About</a></li>
+                <li><a href="/projects.html"><i class="fa fa-book"></i>Projects</a></li>
+                <li><a href="/news.html"><i class="fa fa-newspaper-o"></i>News</a></li>
+                <li><a href="/contact.html"><i class="envelope"></i>Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -73,17 +73,17 @@ document.addEventListener("DOMContentLoaded", function () {
     <a href="/" class="nav-item">
         <i class="fa fa-home"></i>
     </a>
-    <a href="/web/center" class="nav-item">
-        <i class="fa fa-sitemap"></i>
+    <a href="https://nuvioplanet.odoo.com" class="nav-item">
+        <i class="fa fa-book"></i>
     </a>
     
-    <a href="/account/me" class="nav-item">
+    <a href="/planet/" class="nav-item">
         <img src="https://nuvioplanet.odoo.com/web/image/867-5b6b4b91/Untitled%20design.svg" class="icon-image" alt="nuvio logo" loading="lazy" href="/mobile/app/planet/">
     </a>
     <a href="javascipt:history.back()" class="nav-item">
         <i class="fa fa-reply"></i>
     </a>
-    <a href="account" class="nav-item">
+    <a href="/projects.html" class="nav-item">
         <i class="fa fa-user"></i>
     </a>
     /* Only show on small screens */
@@ -98,6 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.body.insertAdjacentHTML("afterbegin", navbarHTML);
 });
+
 
 
 
