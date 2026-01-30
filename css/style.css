@@ -3,7 +3,6 @@
     --content-left: 32px; /* MUST match logo offset */
 
     /* Galaxy palette */
-    --bg-main: #0b0f1a;
     --bg-card: #12182b;
     --bg-card-alt: #0e1324;
     --accent-purple: #7a3cff;
@@ -15,12 +14,32 @@
 
 /* ===== Base ===== */
 body {
-    background-color: var(--bg-main);
+    background-color: #0b0f1a; 
     font-family: Arial, sans-serif;
     color: var(--text-main);
     margin: 0 auto;
     padding: 0 16px;
 }
+
+
+.mb {
+    background-color: #0e0e0e;
+    color: white;
+}
+.mb p {
+    color: white;
+}
+.mb .card {
+    color: white;
+}
+.mb .card p {
+    color: white;
+}
+.mb .card h2 {
+    color: white;
+}
+
+
 
 /* ===== Buttons ===== */
 .btn {
@@ -164,14 +183,4 @@ body {
     color: #222;
     font-weight: 500;
     font-size: 14px;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-    .navbar-desktop {
-        display: none;
-    }
-    .navbar-mobile {
-        display: block;
-    }
 }
