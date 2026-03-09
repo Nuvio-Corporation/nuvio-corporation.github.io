@@ -17,21 +17,37 @@ body {
 .login-box {
   background: white;
   padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
   text-align: center;
+  width: 320px;
 }
 
 .login-box h1 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: #333;
+}
+
+.login-box p.subtitle {
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
 }
 
 .btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 20px;
+  width: 100%;
+  padding: 12px;
   margin-top: 15px;
   background-color: #4cc9f0;
   border: none;
@@ -39,7 +55,7 @@ body {
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
-  color: #000;
+  color: black;
   transition: background 0.3s;
   text-decoration: none;
 }
@@ -52,9 +68,10 @@ body {
 .btn:hover {
   background-color: #3ab0d9;
 }
+
 #error {
   color: red;
-  margin-top: 15px;
+  margin-top: 12px;
 }
 </style>
 </head>
@@ -63,9 +80,13 @@ body {
 
 <div class="login-box">
   <h1>AlJiVi-ID</h1>
-  <p>Gateway to AlJiWorld</p>
+  <p class="subtitle">Gateway to AlJiWorld</p>
 
-  <!-- AlJiVi-ID login button -->
+  <!-- Email / Password Form -->
+  <input type="email" id="email" placeholder="Email" required>
+  <input type="password" id="password" placeholder="Password" required>
+
+  <!-- Login Button with Image -->
   <button class="btn" onclick="login()">
     <img src="images/aljivi-template.png" alt="AlJiVi-ID"> Login with AlJiVi-ID
   </button>
@@ -76,21 +97,21 @@ body {
 <script type="module" src="js/auth.js"></script>
 
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-analytics.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-analytics.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyB3XxIedMSt3UKzp6yjEJIPOUq18iIb2tU",
-    authDomain: "aljivi-id.firebaseapp.com",
-    projectId: "aljivi-id",
-    storageBucket: "aljivi-id.firebasestorage.app",
-    messagingSenderId: "994469586829",
-    appId: "1:994469586829:web:44f46e1bee906db8c8ffc4",
-    measurementId: "G-64W3GDWQBN"
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyB3XxIedMSt3UKzp6yjEJIPOUq18iIb2tU",
+  authDomain: "aljivi-id.firebaseapp.com",
+  projectId: "aljivi-id",
+  storageBucket: "aljivi-id.firebasestorage.app",
+  messagingSenderId: "994469586829",
+  appId: "1:994469586829:web:44f46e1bee906db8c8ffc4",
+  measurementId: "G-64W3GDWQBN"
+};
 
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 </script>
 
 </body>
