@@ -20,7 +20,6 @@ window.login = function() {
     });
 };
 
-// Optional: function to create a new account
 window.signup = function() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
@@ -32,7 +31,7 @@ window.signup = function() {
 
   createUserWithEmailAndPassword(auth, email, password)
     .then(() => {
-      window.location = "index.html";
+      window.location = "index.html"; // redirect after signup
     })
     .catch(err => {
       document.getElementById("error").innerText = err.message;
