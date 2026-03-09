@@ -1,16 +1,38 @@
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
 
 const auth = getAuth();
 
 window.login = function() {
-  // For demo purposes, prompt for email/password
-  const email = prompt("Enter your AlJiVi-ID email:");
-  const password = prompt("Enter your password:");
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  if (!email || !password) {
+    document.getElementById("error").innerText = "Please enter email and password.";
+    return;
+  }
 
   signInWithEmailAndPassword(auth, email, password)
     .then(() => {
-      alert("Logged in successfully!");
-      window.location = "index.html"; // redirect to main site or dashboard
+      window.location = "index.html"; // redirect after login
+    })
+    .catch(err => {
+      document.getElementById("error").innerText = err.message;
+    });
+};
+
+// Optional: function to create a new account
+window.signup = function() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  if (!email || !password) {
+    document.getElementById("error").innerText = "Please enter email and password.";
+    return;
+  }
+
+  createUserWithEmailAndPassword(auth, email, password)
+    .then(() => {
+      window.location = "index.html";
     })
     .catch(err => {
       document.getElementById("error").innerText = err.message;
