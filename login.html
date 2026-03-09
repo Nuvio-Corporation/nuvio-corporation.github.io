@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AlJiVi-ID Login</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f0f4f8;
+  font-family: Arial, sans-serif;
+}
+
+.login-box {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.login-box h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  margin-top: 15px;
+  background-color: #4cc9f0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  transition: background 0.3s;
+  text-decoration: none;
+}
+
+.btn img {
+  height: 24px;
+  margin-right: 10px;
+}
+
+.btn:hover {
+  background-color: #3ab0d9;
+}
+#error {
+  color: red;
+  margin-top: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+  <h1>AlJiVi-ID</h1>
+  <p>Gateway to AlJiWorld</p>
+
+  <!-- AlJiVi-ID login button -->
+  <button class="btn" onclick="login()">
+    <img src="images/aljivi-template.png" alt="AlJiVi-ID"> Login with AlJiVi-ID
+  </button>
+
+  <p id="error"></p>
+</div>
+
+<script type="module" src="js/auth.js"></script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-analytics.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyB3XxIedMSt3UKzp6yjEJIPOUq18iIb2tU",
+    authDomain: "aljivi-id.firebaseapp.com",
+    projectId: "aljivi-id",
+    storageBucket: "aljivi-id.firebasestorage.app",
+    messagingSenderId: "994469586829",
+    appId: "1:994469586829:web:44f46e1bee906db8c8ffc4",
+    measurementId: "G-64W3GDWQBN"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
+</body>
+</html>
