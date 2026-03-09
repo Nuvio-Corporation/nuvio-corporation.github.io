@@ -5,79 +5,35 @@
 <title>AlJiVi-ID Login</title>
 <link rel="stylesheet" href="css/style.css">
 <style>
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: #f0f4f8;
-  font-family: Arial, sans-serif;
+.login-box .btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  padding: 12px !important;
+  margin-top: 15px !important;
+  background-color: #4cc9f0 !important;
+  border: none !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  color: black !important;
+  text-decoration: none !important;
 }
 
-.login-box {
-  background: white;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-  text-align: center;
-  width: 320px;
+.login-box .btn img {
+  height: 24px !important;
+  margin-right: 10px !important;
 }
 
-.login-box h1 {
-  margin-bottom: 10px;
-  color: #333;
+.login-box .btn:hover {
+  background-color: #3ab0d9 !important;
 }
 
-.login-box p.subtitle {
-  opacity: 0.7;
-  margin-bottom: 20px;
+.login-box .btn.secondary {
+  background-color: #ccc !important;
 }
-
-.login-box input {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-}
-
-.btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 12px;
-  margin-top: 15px;
-  background-color: #4cc9f0;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  color: black;
-  transition: background 0.3s;
-  text-decoration: none;
-}
-
-.btn img {
-  height: 24px;
-  margin-right: 10px;
-}
-
-.btn:hover {
-  background-color: #3ab0d9;
-}
-
-.btn.secondary {
-  background-color: #ccc;
-}
-
-#error {
-  color: red;
-  margin-top: 12px;
-}
-</style>
 </head>
 
 <body>
