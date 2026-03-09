@@ -69,6 +69,10 @@ body {
   background-color: #3ab0d9;
 }
 
+.btn.secondary {
+  background-color: #ccc;
+}
+
 #error {
   color: red;
   margin-top: 12px;
@@ -86,9 +90,14 @@ body {
   <input type="email" id="email" placeholder="Email" required>
   <input type="password" id="password" placeholder="Password" required>
 
-  <!-- Login Button with Image -->
+  <!-- Login Button -->
   <button class="btn" onclick="login()">
     <img src="images/aljivi-template.png" alt="AlJiVi-ID"> Login with AlJiVi-ID
+  </button>
+
+  <!-- Create Account Button -->
+  <button class="btn secondary" onclick="signup()">
+    <img src="images/aljivi-template.png" alt="AlJiVi-ID"> Create Account
   </button>
 
   <p id="error"></p>
