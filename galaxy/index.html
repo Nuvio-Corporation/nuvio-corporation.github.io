@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galaxy | Nuvio</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+</head>
+<body>
+  <section class="card" style="margin: 40px auto; max-width: 900px;">
+    <h1>Galaxy</h1>
+    <p data-auth="message">Checking your session...</p>
+  </section>
+
+  <script src="/auth.js"></script>
+  <script src="/js/include.js"></script>
+  <script>
+    (async function () {
+      await window.NuvioAuth.requireUser();
+      window.NuvioAuth.setMessage("Signed in. Galaxy access is ready.", "success");
+    })();
+  </script>
+</body>
+</html>

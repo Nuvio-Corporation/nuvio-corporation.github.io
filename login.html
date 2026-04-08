@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In | Nuvio</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+</head>
+<body>
+  <section class="auth-shell">
+    <div class="auth-panel card">
+      <p class="auth-eyebrow">Nuvio Account</p>
+      <h1>Welcome back</h1>
+      <p class="auth-copy">
+        Sign in to keep your session consistent across the website, or create a new account if you are just getting started.
+      </p>
+
+      <div class="auth-tabs" role="tablist" aria-label="Authentication mode">
+        <button class="auth-tab is-active" type="button" data-mode-switch="login">Log in</button>
+        <button class="auth-tab" type="button" data-mode-switch="signup">Sign up</button>
+      </div>
+
+      <form id="auth-form" class="auth-form">
+        <label class="auth-field">
+          <span>Email</span>
+          <input id="auth-email" type="email" autocomplete="email" required placeholder="you@example.com">
+        </label>
+
+        <label class="auth-field">
+          <span>Password</span>
+          <input id="auth-password" type="password" autocomplete="current-password" required minlength="6" placeholder="At least 6 characters">
+        </label>
+
+        <button id="auth-submit" class="btn auth-submit" type="submit">Log in</button>
+      </form>
+
+      <p class="auth-message" data-auth="message" hidden></p>
+
+      <div class="auth-session card-project" data-auth="user" hidden>
+        <p class="auth-session-label">Signed in as</p>
+        <p class="auth-session-email" data-auth="email"></p>
+        <div class="auth-session-actions">
+          <a class="sbasic" id="auth-continue" href="/">Continue</a>
+          <button class="sbasic-danger" type="button" data-auth="logout">Log out</button>
+        </div>
+      </div>
+
+      <div class="auth-help">
+        <p>Status: <strong data-auth="status">Checking...</strong></p>
+        <p class="auth-help-text">
+          The site uses the shared Supabase client from `/auth.js`. If you ever rotate keys, you can override them with `window.NUVIO_SUPABASE_CONFIG`.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script src="/auth.js"></script>
+  <script>
+    (function () {
+      var currentMode = "login";
+      var form = document.getElementById("auth-form");
+      var emailInput = document.getElementById("auth-email");
+      var passwordInput = document.getElementById("auth-password");
+      var submitButton = document.getElementById("auth-submit");
+      var continueLink = document.getElementById("auth-continue");
+      var searchParams = new URLSearchParams(window.location.search);
+      var redirectTarget = searchParams.get("redirect") || "/";
+
+      continueLink.href = redirectTarget;
+
+      function setMode(mode) {
+        currentMode = mode;
+        document.querySelectorAll("[data-mode-switch]").forEach(function (button) {
+          button.classList.toggle("is-active", button.dataset.modeSwitch === mode);
+        });
+
+        submitButton.textContent = mode === "login" ? "Log in" : "Create account";
+        passwordInput.autocomplete =
+          mode === "login" ? "current-password" : "new-password";
+      }
+
+      document.querySelectorAll("[data-mode-switch]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          setMode(button.dataset.modeSwitch);
+        });
+      });
+
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        var email = emailInput.value.trim();
+        var password = passwordInput.value;
+
+        try {
+          submitButton.disabled = true;
+
+          if (currentMode === "login") {
+            await window.NuvioAuth.signIn(email, password);
+            window.location.href = redirectTarget;
+            return;
+          }
+
+          await window.NuvioAuth.signUp(email, password);
+        } catch (error) {
+          window.NuvioAuth.setMessage(error.message || "Authentication failed.", "error");
+        } finally {
+          submitButton.disabled = false;
+        }
+      });
+
+      document.addEventListener("nuvioauth:statechange", function (event) {
+        var detail = event.detail || {};
+        if (detail.user) {
+          continueLink.href = redirectTarget;
+        }
+      });
+
+      setMode(currentMode);
+    })();
+  </script>
+</body>
+</html>

@@ -25,6 +25,13 @@ faStylesheet.href =
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css';
 document.head.appendChild(faStylesheet);
 
+if (!document.querySelector('script[src="/auth.js"]')) {
+  const authScript = document.createElement('script');
+  authScript.src = '/auth.js';
+  authScript.defer = true;
+  document.head.appendChild(authScript);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     const navbarHTML = `
 <style>
@@ -90,6 +97,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   <a href="/projects.html" class="nav-item">
     <i class="fa fa-server"></i>
+  </a>
+
+  <a href="/login.html?redirect=${encodeURIComponent(window.location.pathname)}" class="nav-item" data-auth="guest login-link">
+    <i class="fa fa-user"></i>
+  </a>
+
+  <a href="#" class="nav-item" data-auth="user logout" hidden>
+    <i class="fa fa-right-from-bracket"></i>
   </a>
 
   <a href="https://nuvioplanet.odoo.com" class="nav-item">
